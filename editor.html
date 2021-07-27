@@ -1,0 +1,92 @@
+<!-- HTML form -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Editor for cambee &#8482;</title>
+    <link rel="stylesheet" type="text/css" href="./css/editor">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans&family=Noto+Sans+KR&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="editor_menu">
+                <div class="editor_menu_items_group">
+                    <button class="editor_menu_items_btn" data-cmd="fontsize_title" aria-pressed="false" type="button">
+                        <span class="editor_menu_items_title">제목</span>
+                    </button>
+                    <button class="editor_menu_items_btn" data-cmd="fontsize_contents" aria-pressed="true" type="button">
+                        <span class="editor_menu_items_p"><b>본문</b></span>
+                    </button>
+                    <span class="editor_menu_items_divider"></span>
+                    <button class="editor_menu_items_btn" data-cmd="bold" aria-pressed="false" title="굵게" type="button"><svg class="icon" width="29" height="29" viewBox="0 0 29 29" preserveAspectRatio="xMidYMid meet">
+                            <g fill="none" fill-rule="evenodd">
+                                <rect width="29" height="29" rx="4"></rect>
+                                <path d="M8 6h5.46c2.49 0 4.3.34 5.42 1.03 1.13.68 1.69 1.77 1.69 3.27.04.89-.22 1.76-.74 2.5a2.96 2.96 0 01-1.96 1.17v.12c1.11.24 1.9.69 2.39 1.35.52.77.78 1.7.73 2.62a4.27 4.27 0 01-1.73 3.64c-1.16.87-2.73 1.3-4.71 1.3H8zm3.72 6.73h2.16c1.01 0 1.74-.15 2.2-.45.47-.36.73-.92.68-1.5a1.49 1.49 0 00-.74-1.4 4.94 4.94 0 00-2.34-.43h-1.96zm0 2.86V20h2.43c1.02 0 1.78-.19 2.26-.57.52-.43.79-1.08.73-1.74 0-1.4-1.04-2.11-3.12-2.11z" fill="#525b61" fill-rule="nonzero"></path>
+                            </g>
+                        </svg>
+                    </button>
+                    <button class="editor_menu_items_btn" data-cmd="italic" aria-pressed="false" title="이탤릭" type="button"><svg class="icon" viewBox="0 0 29 29" height="29" width="29" preserveAspectRatio="xMidYMid meet">
+                            <g fill-rule="evenodd" fill="none">
+                                <rect rx="4" height="29" width="29"></rect>
+                                <g fill="#525b61" transform="translate(9 5)">
+                                    <rect rx="1" height="2" width="8" y="16"></rect>
+                                    <rect rx="1" height="2" width="8" y="1" x="3"></rect>
+                                    <rect rx="1" height="17" width="2" y="1.04" x="4.55" transform="rotate(10 5.55 9.54)"></rect>
+                                </g>
+                            </g>
+                        </svg></button>
+                    <button class="editor_menu_items_btn" data-cmd="underline" aria-pressed="false" title="밑줄" type="button"><svg class="icon" viewBox="0 0 29 29" height="29" width="29" preserveAspectRatio="xMidYMid meet">
+                            <g fill-rule="evenodd" fill="none">
+                                <rect rx="4" height="29" width="29"></rect>
+                                <g transform="translate(6 7)">
+                                    <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.1" stroke="#525b61" d="M3.19 0v5.35c0 3.5 2.38 6.34 5.31 6.34 2.93 0 5.31-2.84 5.31-6.34V0"></path>
+                                    <rect rx="1" height="2.13" width="17" y="14.88" fill="#525b61"></rect>
+                                </g>
+                            </g>
+                        </svg></button>
+
+                    <span class="editor_menu_items_divider"></span>
+                    <button class="editor_menu_items_btn_color" data-cmd="color_black" aria-pressed="false" title="Black" type="button">
+                        <div class="editor_menu_items_btn_color_black"></div>
+                    </button>
+                    <button class="editor_menu_items_btn_color" data-cmd="color_orange" aria-pressed="false" title="Orange" type="button">
+                        <div class="editor_menu_items_btn_color_orange"></div>
+                    </button>
+                    <button class="editor_menu_items_btn_color" data-cmd="color_green" aria-pressed="false" title="Green" type="button">
+                        <div class="editor_menu_items_btn_color_green"></div>
+                    </button>
+                    <span class="editor_menu_items_divider"></span>
+                </div>
+                <div class="editor_menu_buttons_group">
+                    <div class="editor_menu_button_outside">
+                        <button class="editor_menu_button_thumnail_inside">썸네일 추가</button>
+                        <button class="editor_menu_button_post_inside">발행</button>
+                    </div>
+                </div>
+            </div>
+            <div class="editor_body">
+                <div class="editor_title_input">
+                    <input id="id_editor_title_input" class="editor_title_input__text" type="text" placeholder="제목을 입력해주세요." maxlength="30" onkeyup="calc_iframe_counter()" onkeydown="calc_iframe_counter()" onkeypress="calc_iframe_counter()">
+                    <span id="id_editor_title_counter" class="editor_title_input__text_counter">(0 / 30)</span>
+                </div>
+                <div class="editor_contents_input">
+                    <iframe id="editor_iframe" class="editor_contents_box" name="textField" value="내용을 입력해주세요."></iframe>
+
+                </div>
+                <div class="drag-drop">
+                    <label for="uploadFile">업로드</label>
+                    <input type="file" id="uploadFile" />
+                </div>
+            </div>
+            <div class="editor_footer"></div>
+        </div>
+
+    </main>
+</body>
+
+</html>
+<script type="text/javascript" src="index.js"></script>
